@@ -25,7 +25,7 @@ RUN ls -alh && git apply ${BASE_PATH}/patches/${LLVM_VERSION}.patch
 WORKDIR ${BASE_PATH}/build
 RUN --mount=type=cache,target=/ccache/ \
     cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=on -DLLVM_USE_LINKER=gold \
-        -DLLVM_TARGETS_TO_BUILD=X86 -DLLVM_ENABLE_PROJECTS='clang;compiler-rt;lld' -DLLVM_INSTALL_UTILS=ON -DCMAKE_INSTALL_PREFIX=${BASE_PATH}/usr \
+        -DLLVM_TARGETS_TO_BUILD=X86 -DLLVM_ENABLE_PROJECTS='clang;compiler-rt;lld;lldb' -DLLVM_INSTALL_UTILS=ON -DCMAKE_INSTALL_PREFIX=${BASE_PATH}/usr \
         -DLLVM_ENABLE_DUMP=off -DLLVM_ENABLE_ZLIB=on -DLLVM_CCACHE_BUILD=on -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ../llvm/llvm
 
 RUN ninja && ninja install
