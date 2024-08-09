@@ -14,7 +14,7 @@ export DOCKER_BUILDKIT=1
 # See llvmorg-* tags on the llvm git repository
 # -> https://github.com/llvm/llvm-project.git
 TAG=llvm_debug:${LLVM_VERSION}
-IMAGE="fuzztruction-$TAG"
+IMAGE="pingu-$TAG"
 # Push Docker image to the given URL if set.
 # PUSH_URL=nbars/$IMAGE
 
